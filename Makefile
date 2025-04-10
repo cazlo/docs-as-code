@@ -20,4 +20,5 @@ run-docs-live-reload:
 
 .PHONY: clean
 clean:
-	rm -f $(shell pwd)/tmp/*.map $(shell pwd)/tmp/*.png
+	rm -f $(shell pwd)/tmp/*.map $(shell pwd)/tmp/*.png && \
+	rm -rf $(shell pwd)/tmp/assets

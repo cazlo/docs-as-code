@@ -11,6 +11,10 @@ blockdiag {
 }
 ```
 
+```kroki-excalidraw no-transparency=false
+@from_file:diagrams/L1 - Context/excalidraw.json
+```
+
 ```plantuml
 
 @startuml

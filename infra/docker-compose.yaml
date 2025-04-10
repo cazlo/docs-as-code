@@ -5,6 +5,8 @@ services:
       context: ../
       dockerfile: infra/docs.Dockerfile
     container_name: docs-as-code
+    depends_on:
+      - kroki
     ports:
       - 8008:8008
     command:
