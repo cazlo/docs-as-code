@@ -16,11 +16,7 @@ run-docs:
 
 .PHONY: run-docs-live-reload
 run-docs-live-reload:
-	docker run -p 8000:8000 \
-		-v $(shell pwd)/docs:/opt/app/docs -v $(shell pwd)/docs/adr_theme:/opt/app/adr_theme \
-		-v $(shell pwd)/tmp:/opt/app/tmp  \
-		docs-as-code \
-		mkdocs serve -a 0.0.0.0:8000
+	docker compose -f infra/docker-compose.yaml up --build
 
 .PHONY: clean
 clean:

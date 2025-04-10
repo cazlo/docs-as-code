@@ -1,5 +1,16 @@
 # [Example] Context
 
+```kroki-blockdiag no-transparency=false
+blockdiag {
+  blockdiag -> generates -> "block-diagrams";
+  blockdiag -> is -> "very easy!";
+
+  blockdiag [color = "greenyellow"];
+  "block-diagrams" [color = "pink"];
+  "very easy!" [color = "orange"];
+}
+```
+
 ```plantuml
 
 @startuml

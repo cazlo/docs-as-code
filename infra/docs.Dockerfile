@@ -1,9 +1,9 @@
-FROM python:3.9.22-slim as py-build
+FROM python:3.11-bookworm as py-build
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # os patch
-RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt upgrade -y && rm -rf /var/lib/apt/lists/*
 
 
 # setup mkdocs
@@ -13,9 +13,9 @@ WORKDIR /opt/app
 
 # Install PlantUML Markdown and all Dependencies for local build of images
 RUN pip install plantuml-markdown==3.11.1
-RUN apt-get update && \
-    apt-get install -y openjdk-17-jre-headless graphviz && \
-    apt-get clean && \
+RUN apt update && \
+    apt install -y openjdk-17-jre-headless graphviz && \
+    apt clean && \
     rm -rf /var/lib/apt/lists/*
 ENV PLANTUML_JAVAOPTS="-Djava.awt.headless=true"
 ADD https://github.com/plantuml/plantuml/releases/download/v1.2025.2/plantuml-1.2025.2.jar /opt/plantuml/plantuml.jar
@@ -33,5 +33,7 @@ RUN pip install mkdocs-material==9.6.11
 # todo this also looks useful for easier PDF generation
 #RUN pip install mkdocs-print-site-plugin
 
-COPY mkdocs.yml .
-COPY adr_theme adr_theme
+RUN pip install mkdocs-kroki-plugin==0.9.0
+
+COPY docs/mkdocs.yml .
+COPY docs/adr_theme adr_theme

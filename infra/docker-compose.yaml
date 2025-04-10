@@ -1,0 +1,43 @@
+services:
+  docs-as-code:
+    image: docs-as-code:latest
+    build:
+      context: ../
+      dockerfile: infra/docs.Dockerfile
+    container_name: docs-as-code
+    ports:
+      - 8008:8008
+    command:
+      - mkdocs
+      - serve
+      - -a
+      - 0.0.0.0:8008
+    #    command: ["sleep", "3600"]
+    volumes:
+      - ../docs:/opt/app/docs
+      - ../docs/adr_theme:/opt/app/docs/adr_theme
+      - ../tmp:/opt/app/tmp
+  kroki:
+    image: yuzutech/kroki:0.27.0
+    depends_on:
+      - mermaid
+      - bpmn
+      - excalidraw
+    environment:
+      - KROKI_MERMAID_HOST=mermaid
+      - KROKI_BPMN_HOST=bpmn
+      - KROKI_EXCALIDRAW_HOST=excalidraw
+    ports:
+      - "8000:8000"
+  mermaid:
+    image: yuzutech/kroki-mermaid:0.27.0
+    expose:
+      - "8002"
+  bpmn:
+    image: yuzutech/kroki-bpmn:0.27.0
+    expose:
+      - "8003"
+  excalidraw:
+    image: yuzutech/kroki-excalidraw:0.27.0
+    expose:
+      - "8004"
