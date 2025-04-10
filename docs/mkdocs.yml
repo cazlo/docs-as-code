@@ -22,7 +22,9 @@ theme:
         name: Switch to light mode
 
 markdown_extensions:
-  - plantuml_markdown
+  - plantuml_markdown:
+      cachedir: /opt/app/tmp
+#      theme: C4_superhero from <C4/themes>
   - pymdownx.superfences:
         # make exceptions to highlighting of code:
       custom_fences:
