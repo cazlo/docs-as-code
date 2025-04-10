@@ -1,4 +1,4 @@
-FROM python:3.9.19-slim as py-build
+FROM python:3.9.22-slim as py-build
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -7,28 +7,28 @@ RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 
 
 # setup mkdocs
-RUN pip install mkdocs
+RUN pip install mkdocs==1.6.1
 
 WORKDIR /opt/app
 
 # Install PlantUML Markdown and all Dependencies for local build of images
-RUN pip install plantuml-markdown
+RUN pip install plantuml-markdown==3.11.1
 RUN apt-get update && \
     apt-get install -y openjdk-17-jre-headless graphviz && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 ENV PLANTUML_JAVAOPTS="-Djava.awt.headless=true"
-ADD https://github.com/plantuml/plantuml/releases/download/v1.2024.5/plantuml-1.2024.5.jar /opt/plantuml/plantuml.jar
+ADD https://github.com/plantuml/plantuml/releases/download/v1.2025.2/plantuml-1.2025.2.jar /opt/plantuml/plantuml.jar
 RUN echo "#!/bin/bash" > /usr/local/bin/plantuml && \
     echo 'java $PLANTUML_JAVAOPTS -jar /opt/plantuml/plantuml.jar ${@}' >> /usr/local/bin/plantuml && \
     chmod +x /usr/local/bin/plantuml
 
 # Install mermaid2 plugin
-RUN pip install mkdocs-mermaid2-plugin
+RUN pip install mkdocs-mermaid2-plugin==1.2.1
 # todo install
 
 # Install MkDocs as dependency for proper pallete-specific diagram color rendering + nicer ubjectively CSS overall
-RUN pip install mkdocs-material
+RUN pip install mkdocs-material==9.6.11
 
 # todo this also looks useful for easier PDF generation
 #RUN pip install mkdocs-print-site-plugin
