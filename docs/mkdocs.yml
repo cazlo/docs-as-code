@@ -1,5 +1,5 @@
-site_name: Containres Architecture Documentation
-repo_url: https://github.com/cazlo/containres
+site_name: Architecture Documentation Examples
+repo_url: https://github.com/cazlo/docs-as-code
 extra_css:
   - adr_theme/css/adr.css
 theme:
