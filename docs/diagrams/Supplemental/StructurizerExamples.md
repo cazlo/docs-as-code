@@ -20,38 +20,91 @@
 
 ### Microservices
 
-```kroki-structurizr
+#### All service view
+```kroki-structurizr view-key=Containers_All
+@from_file:diagrams/Supplemental/structurizr/microservices/workspace.dsl
+```
+
+#### Single service views
+
+```kroki-structurizr view-key=Containers_Service1
+@from_file:diagrams/Supplemental/structurizr/microservices/workspace.dsl
+```
+
+```kroki-structurizr view-key=Containers_Service2
+@from_file:diagrams/Supplemental/structurizr/microservices/workspace.dsl
+```
+
+```kroki-structurizr view-key=Containers_Service3
 @from_file:diagrams/Supplemental/structurizr/microservices/workspace.dsl
 ```
 
 ## Big Bank PLC
 
-### Workspace
+### System Landscape
 
-```kroki-structurizr
+```kroki-structurizr view-key=SystemLandscape
 @from_file:diagrams/Supplemental/structurizr/big-bank-plc/workspace.dsl
 ```
 
-### System Landscape
-
+<details><summary>
+See error from original example (big-bank-plc/system-landscape)
+</summary>
 ```kroki-structurizr
 @from_file:diagrams/Supplemental/structurizr/big-bank-plc/system-landscape/workspace.dsl
 ```
+</details>
 
 ### Internet Banking System
 
+```kroki-structurizr view-key=SystemContext
+@from_file:diagrams/Supplemental/structurizr/big-bank-plc/workspace.dsl
+```
+
+```kroki-structurizr view-key=Containers
+@from_file:diagrams/Supplemental/structurizr/big-bank-plc/workspace.dsl
+```
+
+```kroki-structurizr view-key=Components
+@from_file:diagrams/Supplemental/structurizr/big-bank-plc/workspace.dsl
+```
+
+```kroki-structurizr view-key=SignIn
+@from_file:diagrams/Supplemental/structurizr/big-bank-plc/workspace.dsl
+```
+
+
+```kroki-structurizr view-key=DevelopmentDeployment
+@from_file:diagrams/Supplemental/structurizr/big-bank-plc/workspace.dsl
+```
+
+```kroki-structurizr view-key=LiveDeployment
+@from_file:diagrams/Supplemental/structurizr/big-bank-plc/workspace.dsl
+```
+
+<details><summary>
+See error from original example
+</summary>
 ```kroki-structurizr
 @from_file:diagrams/Supplemental/structurizr/big-bank-plc/internet-banking-system/workspace.dsl
 ```
+</details>
 
 ## Financial Risk System
 
 ### Workspace
 
 ```kroki-structurizr view-key=Context
-@from_file:diagrams/Supplemental/structurizr/financial-risk-system/workspace.dsl
+@from_file:diagrams/Supplemental/structurizr/financial-risk-system/workspace-kroki-fixed.dsl
 ```
 
+<details><summary>
+See error from original example
+</summary>
+```kroki-structurizr view-key=Context
+@from_file:diagrams/Supplemental/structurizr/financial-risk-system/workspace.dsl
+```
+</details>
 
 
 ## Attribution

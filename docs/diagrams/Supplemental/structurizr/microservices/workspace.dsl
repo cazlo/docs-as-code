@@ -114,16 +114,19 @@ workspace {
         container softwareSystem "Containers_Service1" {
             include ->softwareSystem.service1->
             autolayout
+            title "Containers Service 1 View"
         }
 
         container softwareSystem "Containers_Service2" {
             include ->softwareSystem.service2->
             autolayout
+            title "Containers Service 2 View"
         }
 
         container softwareSystem "Containers_Service3" {
             include ->softwareSystem.service3->
             autolayout
+            title "Containers Service 3 View"
         }
 
         styles {
