@@ -1,4 +1,22 @@
 services:
+  docs-builder:
+    profiles:
+      - build
+    build:
+      context: ../
+      dockerfile: infra/docs.Dockerfile
+    container_name: docs-as-code
+    depends_on:
+      - kroki
+    command:
+      - mkdocs
+      - build
+    volumes:
+      - ../docs:/opt/app/docs
+      - ../docs/adr_theme:/opt/app/docs/adr_theme
+      - ../tmp:/opt/app/tmp
+      - ../site:/opt/app/site
+
   docs-as-code:
     image: docs-as-code:latest
     build:
