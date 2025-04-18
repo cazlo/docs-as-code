@@ -2,6 +2,10 @@ site_name: Architecture Documentation Examples
 repo_url: https://github.com/cazlo/docs-as-code
 extra_css:
   - adr_theme/css/adr.css
+exclude_docs: |
+  adr_theme/*
+#  diagrams/kroki-demos/*
+#  x_example_*
 theme:
   name: material
   custom_dir: adr_theme
@@ -55,4 +59,6 @@ plugins:
       ServerURL: 'http://kroki:8000'
       EnableDiagramsnet: true
       HttpMethod: POST
+      FileTypeOverrides:
+        structurizr: svg
 
